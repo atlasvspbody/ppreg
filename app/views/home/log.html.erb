@@ -1,0 +1,27 @@
+<h1 class='page-header'>Log Game</h1>
+<% if @notice %>
+    <div class="alert alert-warning" role="alert">
+      <% @notice.full_messages.each do |message| %>
+          <li><%= message %></li>
+      <% end %>
+    </div>
+<% end %>
+<%= form_for @game ,:url=> log_create_path do |f| %>
+    <div class="form-group">
+      <label>Date played</label>
+      <%= f.datetime_select :date_played ,class:"form-control"%>
+    </div>
+    <div class="form-group">
+      <label>Opponent</label>
+    <%= f.select :player2_id,  options_from_collection_for_select(User.opponents(current_user), "id", "email"),class:"form-control"%>
+    </div>
+    <div class="form-group">
+      <label>Your Score</label>
+      <%= f.text_field  :player1_score ,class:"form-control"%>
+    </div>
+    <div class="form-group">
+      <label>Their Score</label>
+      <%= f.text_field  :player2_score ,class:"form-control"%>
+    </div>
+    <%= f.submit %>
+<% end %>

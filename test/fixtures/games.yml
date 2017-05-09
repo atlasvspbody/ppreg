@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_played: 2016-09-29 14:08:24
+  player1_id: 
+  player2_id: 
+  player1_score: 
+  player2_score: 
+
+two:
+  date_played: 2016-09-29 14:08:24
+  player1_id: 
+  player2_id: 
+  player1_score: 
+  player2_score: 

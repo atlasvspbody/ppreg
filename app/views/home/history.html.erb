@@ -1,0 +1,27 @@
+<h1 class='page-header'>History</h1>
+
+<% if @notice %>
+    <div class="alert alert-warning" role="alert"><%= @notice =%></div>
+<% end %>
+
+
+<table class="table">
+  <thead>
+  <th>Date</th>
+  <th>Opponent</th>
+  <th>Score</th>
+  <th>Result</th>
+  </thead>
+  <tbody>
+  <% @games.each do |game| %>
+      <tr>
+        <td><%= game.date_played %></td>
+        <td><%= game.get_opponent(current_user).try(:email) %></td>
+        <td><%= "#{game.get_score_user(current_user)} -#{game.get_score_opponent(current_user)}"%></td>
+        <td><%= game.user_result(current_user) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
